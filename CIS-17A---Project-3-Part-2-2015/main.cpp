@@ -4,6 +4,7 @@ using namespace std;
 void DisplayMenu(shared_ptr<Folder> currentFolder, shared_ptr<Folder> parent);
 void AddFileMenu(shared_ptr<Folder> currentFolder);
 void AddFolderMenu(shared_ptr<Folder> currentFolder);
+void SearchFile(shared_ptr<Folder> currentFolder);
 shared_ptr<Folder> NavigateToFolder(shared_ptr<Folder> currentFolder);
 
 int main()
@@ -26,7 +27,7 @@ int main()
 			cout << endl << "Now in folder " << newcurrent->getName() << "!";
 			break;
 		}
-		case 5: //IMPLEMENT THIS
+		case 5: SearchFile(currentFolder); break;
 		case 4: AddFolderMenu(currentFolder); break;
 		case 6: {
 			if (parentFolder != nullptr) {
@@ -91,3 +92,12 @@ void AddFolderMenu(shared_ptr<Folder> currentFolder)
 	auto newFolder = make_shared<Folder>(name);
 	currentFolder->AddFolder(newFolder);
 }
+void SearchFile(shared_ptr<Folder> currentFolder) 
+{
+	system("cls");
+	cout << "Enter file name to search for: ";
+	string name;
+	cin >> name;
+	cin.ignore();
+	currentFolder->FindFile(name);
+};

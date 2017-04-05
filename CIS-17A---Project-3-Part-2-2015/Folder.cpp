@@ -1,5 +1,5 @@
 #include "Folder.h"
-
+#include <iostream>
 Folder::Folder(std::string name) : _name(name)
 {
 }
@@ -47,6 +47,18 @@ std::shared_ptr<Folder> Folder::FindFolder(std::string name)
 	{
 		if (folder->getName() == name) {
 			return folder;
+		}
+	}
+	return nullptr;
+}
+std::shared_ptr<File> Folder::FindFile(std::string name)
+{
+	for (auto file : _files)
+	{
+		if (file->getName() == name) {
+			std::cout << "Found the file!" << std::endl;
+			system("pause");
+			return file;
 		}
 	}
 	return nullptr;
