@@ -99,5 +99,7 @@ void SearchFile(shared_ptr<Folder> currentFolder)
 	string name;
 	cin >> name;
 	cin.ignore();
-	currentFolder->FindFile(name);
+	auto file = currentFolder->FindFile(name);
+	cout << "Found file: " << file << endl;
+	system("pause");
 };
