@@ -19,6 +19,6 @@ public:
 	void AddFile(std::shared_ptr<File> newFile);
 	void AddFolder(std::shared_ptr<Folder> newFolder);
 	std::shared_ptr<Folder> FindFolder(std::string name);
-	std::shared_ptr<File> FindFile(std::string name);
+	std::string FindFile(std::string name);
 };
 

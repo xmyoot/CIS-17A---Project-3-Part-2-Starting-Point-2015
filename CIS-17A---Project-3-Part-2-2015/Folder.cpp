@@ -50,19 +50,15 @@ std::shared_ptr<Folder> Folder::FindFolder(std::string name)
 	}
 	return nullptr;
 }
-std::shared_ptr<File> Folder::FindFile(std::string name)
+std::string Folder::FindFile(std::string name)
 {
 	for (auto file : _files)
 	{
 		if (file->getName() == name) {
-			return file;
-		} else {
-			for (auto folder : _folders) {
-				auto file = folder->FindFile(name);
-				if (file != nullptr) {
-					return file;
-				}
-			}
+			return file->getName();
+		}
+		else {
+			return "Not found, switch to different folder and try again!";
 		}
 	}
 	return nullptr;
