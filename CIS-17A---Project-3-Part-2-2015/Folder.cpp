@@ -54,12 +54,10 @@ std::string Folder::FindFile(std::string name)
 {
 	for (auto file : _files)
 	{
-		if (file->getName() == name) {
-			return file->getName();
-		}
-		else {
-			return "Not found, switch to different folder and try again!";
-		}
+		if (file->getName() == name) return file->getName();
 	}
-	return nullptr;
+	for (auto folder : _folders) {
+			return folder->FindFile(name);
+	}
+	return "...sorry, file never found!";
 }
